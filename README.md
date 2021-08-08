@@ -20,5 +20,8 @@ npm run build
 npm run test:unit
 ```
 
+### Play the game in this url
+[https://pokemon-app-cdc.netlify.app/]
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
