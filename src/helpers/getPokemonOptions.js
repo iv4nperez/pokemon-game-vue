@@ -21,8 +21,6 @@ const getPokemonOptions = async () => {
 
 export const getPokemonName = async ( [a,b,c,d] = [] ) => {
 
-    const resp = await pokemonApi.get(`/1`);
-
     const arrProises = [
         pokemonApi.get(`/${ a }`),
         pokemonApi.get(`/${ b }`),

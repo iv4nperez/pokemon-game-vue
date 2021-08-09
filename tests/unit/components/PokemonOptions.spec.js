@@ -11,7 +11,8 @@ describe('PokemonOptions Components', () => {
     beforeEach(() => {
         wrapper = shallowMount( PokemonOptions,{
             props:{
-                pokemons
+                pokemons,
+                diabledOptions: false
             }
         })
 
