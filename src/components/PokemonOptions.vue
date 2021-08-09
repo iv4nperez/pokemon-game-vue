@@ -1,7 +1,7 @@
 <template>
     <div class="options-container">
         <ul>
-            <li v-for="pokemon in pokemons" :key="pokemon.id" @click="$emit( 'selection', pokemon.id )" >
+            <li :class="`${ diabledOptions ? 'disabled' : '' }`"  v-for="pokemon in pokemons" :key="pokemon.id" @click="$emit( 'selection', pokemon.id )" >
                 {{ pokemon.name }}
             </li>
         </ul>
@@ -13,6 +13,11 @@ export default {
         pokemons:{
             type: Array,
             required: true
+        },
+        diabledOptions:{
+            type: Boolean,
+            required: true,
+            default: false
         }
     }
 }
@@ -23,11 +28,12 @@ export default {
     }
     li {
         background-color: white;
-        border-radius: 5px;
+        border-radius: 8px;
         border: 1px solid rgba(0, 0, 0, 0.2);
         cursor: pointer;
         margin-bottom: 10px;
         width: 250px;
+        padding: 7px;
     }
 
     li:hover {
@@ -37,5 +43,10 @@ export default {
     .options-container {
         display: flex;
         justify-content: center;
+    }
+
+    .disabled {
+        pointer-events:none; 
+        opacity:0.6;        
     }
 </style>

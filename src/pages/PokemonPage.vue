@@ -12,11 +12,12 @@
         <PokemonOptios
             :pokemons="pokemonArr"
             @selection="checkAnser"
+            :diabledOptions="diabledOptions"
         />
 
        <template v-if="showAnswer" class="fade-in">
             <h2>{{ message }}</h2>
-            <button @click="newGame">
+            <button class="btn-primary" @click="newGame">
                 Nuevo Juego
             </button>
        </template>
@@ -41,7 +42,8 @@ export default {
             pokemon: null,
             showPokemon: false,
             showAnswer: false,
-            message:''
+            message:'',
+            diabledOptions: false
         }
     },
     methods: {
@@ -54,6 +56,7 @@ export default {
         checkAnser ( selectedId ) {
             this.showPokemon = true
             this.showAnswer = true
+            this.diabledOptions = true
 
             if ( selectedId === this.pokemon.id) {
                 this.message = `Correcto ${ this.pokemon.name }`
@@ -67,6 +70,7 @@ export default {
             this.message = ''
             this.pokemonArr = []
             this.pokemon = null
+            this.diabledOptions = false
 
             this.mixPokemonArray()
         }
@@ -76,3 +80,21 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+.btn-primary {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #828282;
+    background: white;
+}
+
+.btn-primary:hover {
+    cursor: pointer;
+    -webkit-box-shadow: -1px 2px 44px -16px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 2px 44px -16px rgba(0,0,0,0.75);
+    box-shadow: -1px 2px 44px -16px rgba(0,0,0,0.75);
+    }
+
+</style>
